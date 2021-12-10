@@ -4,19 +4,25 @@ Console.WriteLine(" Xx-_-0003 Rock, paper and scissors 3000-_-xX ");
 int player = 0;
 int npc = 0;
 
-int runds = 10;
+int runds = 11;
 int rundCount = 1;
 
 int rock = 1, paper = 2, scissors = 3;
 
 while (rundCount<= runds)
 {
-roundStart:
-    Console.WriteLine("rund: "+rundCount);
 
     bool rundWon = false;
     while (rundWon==false)
     {
+    roundStart:
+        Console.WriteLine("rund: "+rundCount);
+        Console.WriteLine(" ");
+        Console.WriteLine("score: ");
+        Console.WriteLine("----------------------");
+        Console.WriteLine("|player: {0} - NPC: {1}  |", player, npc);
+        Console.WriteLine("----------------------");
+        Console.WriteLine(" ");
         Console.WriteLine("Player turn:");
         Console.WriteLine("type: 1-Rock 2-paper 3-scissor");
 
@@ -37,7 +43,6 @@ roundStart:
                 break;
             default:
                 Console.Clear();
-                Thread.Sleep(1000);
                 goto roundStart;
 
         }
@@ -113,5 +118,31 @@ roundStart:
         {
             Console.WriteLine("tie");
         }
+        Thread.Sleep(1500);
+        Console.Clear();
     }
 }
+
+Console.Clear();
+
+string winner = string.Empty;
+
+if (player>npc)
+{
+    winner = "player";
+}
+
+else if (npc>player)
+{
+    winner = "npc";
+}
+
+else
+{
+    winner = "tie";
+}
+
+Thread.Sleep(1000);
+Console.WriteLine("------------------------------");
+Console.WriteLine("WINNER IS " + winner);
+Console.WriteLine("------------------------------");
